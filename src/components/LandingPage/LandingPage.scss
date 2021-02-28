@@ -1,0 +1,15 @@
+@import "../../resources/variables.scss";
+
+.landing-section {
+  align-self: center;
+  max-width: 30rem;
+  margin-bottom: 4rem;
+}
+
+.instructions {
+  color: $floral-white;
+  padding: 0 2rem;
+  line-height: 1.5;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}

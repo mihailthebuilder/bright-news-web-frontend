@@ -1,0 +1,35 @@
+@import "../../resources/variables.scss";
+
+.score-group {
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      font-weight: 700;
+      line-height: 1.7;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet-screen) {
+  .score-group {
+    text-align: center;
+  }
+
+  .score-group:last-child {
+    grid-column: 1/-1;
+  }
+}
+
+@media (max-width: $mobile-screen) {
+  .score-group {
+    h3 {
+      margin: 0.5em 0;
+    }
+  }
+}

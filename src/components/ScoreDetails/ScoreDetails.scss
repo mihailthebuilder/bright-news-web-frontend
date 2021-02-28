@@ -1,0 +1,31 @@
+@import "../../resources/variables.scss";
+
+.analysis-group {
+  width: 20rem;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 0.7rem;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@media (max-width: $tablet-screen) {
+  .analysis-group {
+    width: auto;
+    padding: 0 2rem;
+  }
+}
+
+@media (max-width: $mobile-screen) {
+  .analysis-group {
+    padding: 0;
+  }
+}

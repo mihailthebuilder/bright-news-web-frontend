@@ -1,0 +1,76 @@
+@import "../../resources/variables.scss";
+
+nav {
+  background: $blue;
+  color: $light-yellow;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 4rem;
+}
+
+.nav-wrapper {
+  padding: 0 $padding-lg-x;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-nav-wrapper:hover,
+.right-nav-wrapper:hover {
+  color: $coral;
+  text-shadow: 0.5px 0.5px $floral-white;
+  transition: 0.1s;
+}
+
+.left-nav-wrapper {
+  justify-self: start;
+  font-family: Lobster;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.right-nav-wrapper {
+  justify-self: end;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.search-nav-wrapper {
+  font-size: 0.75rem;
+}
+
+@media (max-width: $tablet-screen) {
+  .nav-wrapper {
+    padding: 0 $padding-md-x;
+  }
+
+  .left-nav-wrapper {
+    font-size: 1.2rem;
+  }
+
+  .search-nav-wrapper {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: $mobile-screen) {
+  nav {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .nav-wrapper {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .search-nav-wrapper {
+    grid-row-start: 2;
+    grid-row-end: span 1;
+    grid-column-start: 1;
+    grid-column-end: span 2;
+  }
+}

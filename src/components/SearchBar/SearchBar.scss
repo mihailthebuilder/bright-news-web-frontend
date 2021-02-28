@@ -1,0 +1,103 @@
+@import "../../resources/variables.scss";
+
+form {
+  display: grid;
+  grid-template-columns: auto 6.7em;
+  input,
+  button {
+    font-size: 1.17em;
+    font-weight: 700;
+    padding: 0.6em 0.7em;
+    border-radius: 0.3em;
+    outline: none;
+    border: 0.1em solid $charcoal;
+  }
+  input:hover,
+  input:focus,
+  .normal-button:hover,
+  .normal-button:focus {
+    box-shadow: 0 0 0.5em 0.05em white;
+    transition: 0.1s;
+  }
+  input {
+    margin-right: 0.5rem;
+    text-align: center;
+    color: $charcoal;
+  }
+
+  input::placeholder {
+    color: $silver;
+  }
+  input::ms-input-placeholder {
+    color: $silver;
+  }
+  input:ms-input-placeholder {
+    color: $silver;
+  }
+
+  button {
+    color: white;
+  }
+}
+
+.normal-button {
+  cursor: pointer;
+  background: $coral;
+}
+
+.loading-button {
+  background: $light-yellow;
+  cursor: not-allowed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    fill: white;
+    width: 1.4em;
+    height: 1.4em;
+    margin: -0.4rem -0.4rem;
+    animation: rotation 0.8s infinite linear;
+  }
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.landing-search-form {
+  padding: 1rem 1rem;
+}
+
+.nav-search-form {
+  input {
+    width: 20em;
+  }
+}
+
+@media (max-width: $tablet-screen) {
+  .nav-search-form {
+    input {
+      width: 15em;
+    }
+  }
+}
+
+@media (max-width: $mobile-screen) {
+  .landing-search-form {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    row-gap: 1rem;
+
+    input {
+      margin: 0;
+      width: 100%;
+    }
+  }
+}

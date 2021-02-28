@@ -1,0 +1,44 @@
+@import "./resources/variables.scss";
+
+@font-face {
+  font-family: "Lato";
+  src: local("Lato"), url(./resources/Lato-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: local("Lobster"), url(./resources/Lobster-Regular.ttf) format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 25px;
+  cursor: default;
+}
+
+body {
+  margin: 0;
+  font-family: Lato, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+@media (max-width: $laptop-screen) {
+  html {
+    font-size: 21px;
+  }
+}
+
+@media (max-width: $mobile-screen) {
+  html {
+    font-size: 18px;
+  }
+}

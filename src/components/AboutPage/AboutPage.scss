@@ -1,0 +1,23 @@
+@import "../../resources/variables.scss";
+
+.about-section {
+  padding: 5vw 20vw;
+  min-height: 90vh;
+  background: $floral-white;
+  color: $charcoal;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.about-text {
+  margin-top: 1rem;
+  padding-top: 1px;
+}
+
+@media (max-width: $mobile-screen) {
+  .about-section {
+    padding: 1.5rem;
+  }
+}

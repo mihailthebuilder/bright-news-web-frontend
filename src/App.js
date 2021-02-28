@@ -23,7 +23,10 @@ function App() {
     setLoadingSearch(true);
 
     axios
-      .post("http://localhost:8000/api/calculate", { url: url })
+      // replace with localhost:8000/calculate for localhost
+      .post("https://bright-news-backend.herokuapp.com/api/calculate", {
+        url: url,
+      })
       .then((res) => {
         setLoadingSearch(false);
         if (res.data["success"] === true) {

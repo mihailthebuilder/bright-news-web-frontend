@@ -5,7 +5,7 @@
 React frontend for a web app that analyses the positivity of a news site. Links to...
 
 - [live site](https://mihailthebuilder.github.io/bright-news-web-frontend/)
-- [backend](https://github.com/mihailthebuilder/bright-news-backend)
+- [backend repo](https://github.com/mihailthebuilder/bright-news-backend)
 
 ## Table of contents
 

@@ -6,5 +6,11 @@ test("basic test", async ({ page }) => {
   await expect(page.locator("nav")).toContainText("Bright News");
 
   await page.fill("input[type='text']", "ft.com");
-  await page.click("button[type='submit']");
+
+  await Promise.all([
+    page.waitForResponse(
+      "https://bright-news-backend.herokuapp.com/api/calculate"
+    ),
+    await page.click("button[type='submit']"),
+  ]);
 });

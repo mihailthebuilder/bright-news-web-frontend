@@ -2,6 +2,9 @@ const { test, expect } = require("@playwright/test");
 
 test("basic test", async ({ page }) => {
   await page.goto("http://localhost:3000/bright-news-web-frontend");
-  const title = page.locator("nav");
-  await expect(title).toContainText("Bright News");
+
+  await expect(page.locator("nav")).toContainText("Bright News");
+
+  await page.fill("input[type='text']", "ft.com");
+  await page.click("button[type='submit']");
 });

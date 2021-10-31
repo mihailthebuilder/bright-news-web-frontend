@@ -29,7 +29,6 @@ test("e2e test", async ({ page }) => {
 
   // score formats is good?
   scContents = await scoreComps.allTextContents();
-  console.log(scContents);
   const scRegex = /^\S*\s\(\d\d?\d?%\)$/;
   const sccFormatCheck = scContents.every((text) => scRegex.test(text));
   expect(sccFormatCheck).toBe(true);

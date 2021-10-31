@@ -33,4 +33,8 @@ test("e2e test", async ({ page }) => {
   const scRegex = /^\S*\s\(\d\d?\d?%\)$/;
   const sccFormatCheck = scContents.every((text) => scRegex.test(text));
   expect(sccFormatCheck).toBe(true);
+
+  // about section
+  await page.click("[pagename='about']");
+  await expect(page.locator("h1")).toHaveText("About");
 });

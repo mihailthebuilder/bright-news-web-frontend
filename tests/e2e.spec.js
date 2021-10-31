@@ -21,4 +21,9 @@ test("e2e test", async ({ page }) => {
 
   const scoreRegex = /\d\d\d?%/;
   expect(scoreRegex.test(scoreText)).toBe(true);
+
+  // check whether there's enough score comparisons
+  scoreComps = await page.locator(".score-group li");
+  scoreCompsNum = await scoreComps.count();
+  expect(scoreCompsNum >= 0 && scoreCompsNum <= 9).toBe(true);
 });

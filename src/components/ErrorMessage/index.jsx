@@ -1,5 +1,4 @@
 import "./ErrorMessage.scss";
-import { useState } from "react";
 import { ReactComponent as CloseIcon } from "./CloseIcon.svg";
 
 const ErrorMessage = ({ displayError, setDisplayError }) => {

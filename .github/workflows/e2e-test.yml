@@ -1,9 +1,10 @@
 name: e2e test
 on: [push]
-runs-on: ubuntu-latest
-steps:
-  - uses: actions/checkout@v2
-  - uses: actions/setup-node@v2
-  - run: npm ci
-  - run: npm run build
-  - run: npm test
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+    - run: npm ci
+    - run: npm run build
+    - run: npm test

@@ -3,8 +3,10 @@ const { test, expect } = require("@playwright/test");
 test("e2e test", async ({ page }) => {
   await page.goto("http://localhost:3000/bright-news-web-frontend");
 
+  // title
   await expect(page.locator("nav")).toContainText("Bright News");
 
+  // try fetching a score
   await page.fill("input[type='text']", "ft.com");
 
   await Promise.all([
@@ -13,4 +15,10 @@ test("e2e test", async ({ page }) => {
     ),
     await page.click("button[type='submit']"),
   ]);
+
+  // check whether website score rendered well
+  const scoreText = await page.innerText(".score");
+
+  const scoreRegex = /\d\d\d?%/;
+  expect(scoreRegex.test(scoreText)).toBe(true);
 });

@@ -1,7 +1,7 @@
 name: e2e test
 on: [push]
 jobs:
-  build:
+  e2e-test:
     runs-on: ubuntu-latest
 
     steps:
@@ -13,5 +13,4 @@ jobs:
           cache: "npm"
       - run: npx playwright install-deps
       - run: npm ci
-      - run: npm run build --if-present
       - run: npm test

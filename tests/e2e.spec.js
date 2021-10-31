@@ -19,7 +19,7 @@ test("e2e test", async ({ page }) => {
   // check whether website score rendered well
   const scoreText = await page.innerText(".score");
 
-  const scoreRegex = /\d\d\d?%/;
+  const scoreRegex = /\d\d?\d?%/;
   expect(scoreRegex.test(scoreText)).toBe(true);
 
   // check whether there's enough score comparisons

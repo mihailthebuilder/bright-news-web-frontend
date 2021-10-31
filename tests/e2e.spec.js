@@ -16,18 +16,18 @@ test("e2e test", async ({ page }) => {
     await page.click("button[type='submit']"),
   ]);
 
-  // check whether website score rendered well
+  // website score rendered well?
   const scoreText = await page.innerText(".score");
 
   const scoreRegex = /\d\d?\d?%/;
   expect(scoreRegex.test(scoreText)).toBe(true);
 
-  // check whether there's enough score comparisons
+  // enough score comparisons?
   scoreComps = await page.locator(".score-group li");
   scNum = await scoreComps.count();
   expect(scNum >= 0 && scNum <= 9).toBe(true);
 
-  // check whether score formats is good
+  // score formats is good?
   scContents = await scoreComps.allTextContents();
   console.log(scContents);
   const scRegex = /^\S*\s\(\d\d?\d?%\)$/;

@@ -24,6 +24,6 @@ test("e2e test", async ({ page }) => {
 
   // check whether there's enough score comparisons
   scoreComps = await page.locator(".score-group li");
-  scoreCompsNum = await scoreComps.count();
-  expect(scoreCompsNum >= 0 && scoreCompsNum <= 9).toBe(true);
+  scNum = await scoreComps.count();
+  expect(scNum >= 0 && scNum <= 9).toBe(true);
 });

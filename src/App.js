@@ -9,6 +9,8 @@ import ErrorMessage from "./components/ErrorMessage";
 import ResultsPage from "./components/ResultsPage";
 import AboutPage from "./components/AboutPage";
 
+import { requestUrl } from "./resources/resources";
+
 import "./App.scss";
 
 function App() {
@@ -24,7 +26,7 @@ function App() {
 
     axios
       // replace with localhost:8000/calculate for localhost
-      .post("https://bright-news-backend.herokuapp.com/api/calculate", {
+      .post(requestUrl(), {
         url: url,
       })
       .then((res) => {

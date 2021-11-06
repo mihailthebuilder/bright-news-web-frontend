@@ -40,4 +40,16 @@ test.describe("e2e", () => {
     await page.click("[pagename='about']");
     await expect(page.locator("h1")).toHaveText("About");
   });
+
+  test("bad request", async ({ page }) => {
+    // try fetching a score
+    await page.fill("input[type='text']", "ffwefew");
+
+    await Promise.all([
+      page.waitForResponse("http://localhost:8000/api/calculate"),
+      await page.click("button[type='submit']"),
+    ]);
+
+    await expect(page.locator(".error-message.show")).toBeVisible();
+  });
 });

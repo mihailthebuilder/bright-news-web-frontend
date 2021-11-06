@@ -56,4 +56,4 @@ jobs:
           cd backend
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - run: cd frontend; npm test
+      - run: (cd backend; python manage.py runserver) & (cd frontend; npm run test)

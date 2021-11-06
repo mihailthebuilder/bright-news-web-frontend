@@ -24,21 +24,25 @@ function App() {
     event.preventDefault();
     setLoadingSearch(true);
 
+    console.log(requestUrl());
+
     axios
       .post(requestUrl(), {
         url: url,
       })
       .then((res) => {
-        setLoadingSearch(false);
+        if (res.status !== 200) throw new Error("Bad request");
 
-        if (res.status === 200) {
-          setUrlResults(res.data);
-          setPage("results");
-        } else {
-          // if something broke, show the error message
-          setDisplayError(true);
-          setTimeout(() => setDisplayError(false), 3000);
-        }
+        setUrlResults(res.data);
+        setPage("results");
+      })
+      .catch((err) => {
+        // if something broke, show the error message
+        setDisplayError(true);
+        setTimeout(() => setDisplayError(false), 3000);
+      })
+      .finally(() => {
+        setLoadingSearch(false);
         setUrl("");
       });
   };

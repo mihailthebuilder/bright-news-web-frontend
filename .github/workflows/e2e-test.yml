@@ -27,12 +27,30 @@ jobs:
           --health-retries 5
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Checkout frontend
+        uses: actions/checkout@v2
+        with:
+          path: bright-news-web-frontend
+      - name: Checkout backend
+        uses: actions/checkout@v2
+        with:
+          repository: mihailthebuilder/bright-news-backend
+          path: bright-news-backend    
+      - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: 14.x
           cache: "npm"
       - run: npx playwright install-deps
-      - run: npm ci
+      - run: |
+          cd bright-news-web-frontend
+          npm ci
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      - run: |
+          cd bright-news-backend
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
       - run: npm test

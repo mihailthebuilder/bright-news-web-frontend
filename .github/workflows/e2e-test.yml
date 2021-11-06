@@ -56,4 +56,9 @@ jobs:
           cd backend
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - run: (cd backend; python manage.py runserver) & (cd frontend; npm run test)
+      - name: "Run app"
+        env:
+          DB: '{"ENGINE": "django.db.backends.postgresql", "NAME": "postgres", "USER": "postgres", "PASSWORD": "postgres", "HOST": "localhost", "PORT": "5432"}'
+          DJANGO_ENV: development
+          SECRET_KEY: secret_key
+        run: (cd backend; python manage.py runserver) & (cd frontend; npm run test)

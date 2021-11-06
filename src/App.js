@@ -24,13 +24,13 @@ function App() {
     event.preventDefault();
     setLoadingSearch(true);
 
+    console.log(requestUrl());
+
     axios
       .post(requestUrl(), {
         url: url,
       })
       .then((res) => {
-        setLoadingSearch(false);
-
         if (res.status !== 200) throw new Error("Bad request");
 
         setUrlResults(res.data);
@@ -41,7 +41,10 @@ function App() {
         setDisplayError(true);
         setTimeout(() => setDisplayError(false), 3000);
       })
-      .finally(() => setUrl(""));
+      .finally(() => {
+        setLoadingSearch(false);
+        setUrl("");
+      });
   };
 
   return (

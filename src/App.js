@@ -30,7 +30,8 @@ function App() {
       })
       .then((res) => {
         setLoadingSearch(false);
-        if (res.data["success"] === true) {
+
+        if (res.status === 200) {
           setUrlResults(res.data);
           setPage("results");
         } else {

@@ -5,10 +5,12 @@ test.describe("e2e", () => {
     await page.goto("http://localhost:3000/bright-news-web-frontend");
   });
 
-  test("e2e test", async ({ page }) => {
+  test("landing page works", async ({ page }) => {
     // title
     await expect(page.locator("nav")).toContainText("Bright News");
+  });
 
+  test("good request", async ({ page }) => {
     // try fetching a score
     await page.fill("input[type='text']", "ft.com");
 

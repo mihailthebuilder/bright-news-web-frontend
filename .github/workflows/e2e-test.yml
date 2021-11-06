@@ -42,9 +42,7 @@ jobs:
           node-version: 14.x
           cache: "npm"
       - run: npx playwright install-deps
-      - run: |
-          cd bright-news-web-frontend
-          npm ci
+      - run: npm ci
       - name: Set up Python
         uses: actions/setup-python@v2
         with:

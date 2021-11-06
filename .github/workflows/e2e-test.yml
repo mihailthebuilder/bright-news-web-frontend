@@ -46,9 +46,9 @@ jobs:
           cache-dependency-path: frontend/package-lock.json
       - run: npx playwright install-deps
 
-      - run: ls -l & cd frontend & ls -l
+      - run: ls -l; cd frontend; ls -l
 
-      - run: cd frontend & npm ci
+      - run: cd frontend; npm ci
 
       - name: Set up Python
         uses: actions/setup-python@v2

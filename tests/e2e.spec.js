@@ -1,9 +1,11 @@
 const { test, expect } = require("@playwright/test");
 
 test.describe("e2e", () => {
-  test("e2e test", async ({ page }) => {
+  test.beforeEach(async ({ page }) => {
     await page.goto("http://localhost:3000/bright-news-web-frontend");
+  });
 
+  test("e2e test", async ({ page }) => {
     // title
     await expect(page.locator("nav")).toContainText("Bright News");
 

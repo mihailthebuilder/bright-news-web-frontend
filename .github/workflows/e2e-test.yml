@@ -29,6 +29,21 @@ jobs:
     steps:
       - name: Checkout frontend
         uses: actions/checkout@v2
+        with:
+          path: frontend
+
+      - run: ls -l
+      - run: cd .. & ls -l
+
+      - name: Checkout backend
+        uses: actions/checkout@v2
+        with:
+          path: backend
+          repository: mihailthebuilder/bright-news-backend
+
+      - run: ls -l
+      - run: cd .. & ls -l
+
       - name: Set up Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
@@ -36,10 +51,6 @@ jobs:
           cache: "npm"
       - run: npx playwright install-deps
       - run: npm ci
-      - name: Checkout backend
-        uses: actions/checkout@v2
-        with:
-          repository: mihailthebuilder/bright-news-backend
       - name: Set up Python
         uses: actions/setup-python@v2
         with:

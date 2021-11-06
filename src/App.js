@@ -25,13 +25,13 @@ function App() {
     setLoadingSearch(true);
 
     axios
-      // replace with localhost:8000/calculate for localhost
       .post(requestUrl(), {
         url: url,
       })
       .then((res) => {
         setLoadingSearch(false);
-        if (res.data["success"] === true) {
+
+        if (res.status === 200) {
           setUrlResults(res.data);
           setPage("results");
         } else {

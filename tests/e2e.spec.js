@@ -10,9 +10,7 @@ test("e2e test", async ({ page }) => {
   await page.fill("input[type='text']", "ft.com");
 
   await Promise.all([
-    page.waitForResponse(
-      "https://bright-news-backend.herokuapp.com/api/calculate"
-    ),
+    page.waitForResponse("http://localhost:8000/api/calculate"),
     await page.click("button[type='submit']"),
   ]);
 

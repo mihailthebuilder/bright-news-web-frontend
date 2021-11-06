@@ -42,3 +42,14 @@ export const shortenStr = (inputStr, charNumLimit) => {
     ? inputStr.slice(0, charNumLimit) + "..."
     : inputStr;
 };
+
+const backendPath = "/api/calculate";
+
+export const requestUrl = () => {
+  let url =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8000"
+      : "https://bright-news-backend.herokuapp.com";
+
+  return url + backendPath;
+};

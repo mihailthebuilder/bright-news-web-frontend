@@ -31,16 +31,17 @@ function App() {
       .then((res) => {
         setLoadingSearch(false);
 
-        if (res.status === 200) {
-          setUrlResults(res.data);
-          setPage("results");
-        } else {
-          // if something broke, show the error message
-          setDisplayError(true);
-          setTimeout(() => setDisplayError(false), 3000);
-        }
-        setUrl("");
-      });
+        if (res.status !== 200) throw new Error("Bad request");
+
+        setUrlResults(res.data);
+        setPage("results");
+      })
+      .catch((err) => {
+        // if something broke, show the error message
+        setDisplayError(true);
+        setTimeout(() => setDisplayError(false), 3000);
+      })
+      .finally(() => setUrl(""));
   };
 
   return (

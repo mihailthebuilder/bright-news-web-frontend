@@ -56,6 +56,4 @@ jobs:
           cd backend
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - run: ls -l
-      - run: cd .. & ls -l
-      - run: cd ../bright-news-web-frontend & npm test
+      - run: cd frontend; npm test

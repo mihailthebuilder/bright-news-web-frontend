@@ -25,7 +25,6 @@ function App() {
     setLoadingSearch(true);
 
     axios
-      // replace with localhost:8000/calculate for localhost
       .post(requestUrl(), {
         url: url,
       })

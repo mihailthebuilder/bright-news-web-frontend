@@ -18,7 +18,7 @@ React frontend for a web app that analyses the positivity of a news site. Links 
   - [Mobile responsive](#mobile-responsive)
   - [DevOps](#devops)
     - [Launch in local environment](#launch-in-local-environment)
-    - [GitHub Action](#github-action)
+    - [GitHub Actions](#github-actions)
   - [License](#license)
 
 ## Architecture
@@ -67,9 +67,18 @@ Wouldn't have it any other way 📱🔥
 5. `npm run test-head` - run the test suit with a visible Chrome browser.
 6. `npm run deploy` - deploy the app using GitHub Pages.
 
-### GitHub Action
+### GitHub Actions
 
-TBC...
+I set up a workflow that does the following:
+
+1. Creates a PostgreSQL database service
+2. Fetches the backend repo
+3. Sets up the environment for the backend repo, including the connection to the PostgreSQL database
+4. Fetches this frontend repo and sets up the environment for it
+5. Launches the backend development server
+6. Runs several end-to-end tests on a frontend that's connected to the backend server
+
+The workflow runs on every push.
 
 ## License
 

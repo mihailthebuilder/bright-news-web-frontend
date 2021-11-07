@@ -16,6 +16,9 @@ React frontend for a web app that analyses the positivity of a news site. Links 
   - [Pages](#pages)
   - [Running the analysis](#running-the-analysis)
   - [Mobile responsive](#mobile-responsive)
+  - [DevOps](#devops)
+    - [Launch in local environment](#launch-in-local-environment)
+    - [GitHub Action](#github-action)
   - [License](#license)
 
 ## Architecture
@@ -52,6 +55,21 @@ You may notice that I do a ton of data manipulation in the components for the Re
 Wouldn't have it any other way 📱🔥
 
 ![mobile responsive](demo/mobile-responsive.gif)
+
+## DevOps
+
+### Launch in local environment
+
+1. `npm install` - set up the local environment
+2. Get the [backend](https://github.com/mihailthebuilder/bright-news-backend#running-the-app-locally) up and running in localhost.
+3. `npm start` - start the app
+4. `npm test` - run an end-to-end test suite in headless mode. The suite checks what happens when submitting a good, and a bad request.
+5. `npm run test-head` - run the test suit with a visible Chrome browser.
+6. `npm run deploy` - deploy the app using GitHub Pages.
+
+### GitHub Action
+
+TBC...
 
 ## License
 

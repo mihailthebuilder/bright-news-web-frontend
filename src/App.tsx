@@ -52,7 +52,7 @@ function App() {
 
   return (
     <Router>
-      <div className={page === "landing" ? "spa-layout" : ""}>
+      <div className="app">
         <ErrorMessage
           displayError={displayError}
           setDisplayError={setDisplayError}

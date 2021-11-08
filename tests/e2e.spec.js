@@ -56,5 +56,7 @@ test.describe("e2e", () => {
     ]);
 
     await expect(page.locator(".error-message.show")).toBeVisible();
+
+    await expect(page).toHaveURL(/^(?!.*(results|about))/);
   });
 });

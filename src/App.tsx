@@ -1,4 +1,4 @@
-import { useState, FormEvent, MouseEvent, ChangeEvent } from "react";
+import { useState, FormEvent, ChangeEvent } from "react";
 import axios from "axios";
 
 import NavBar from "./components/NavBar";

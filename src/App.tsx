@@ -53,6 +53,7 @@ function App() {
   return (
     <Router>
       <div className="app">
+        {/*TODO: check if ErrorMessage should be a conditional error rendering */}
         <ErrorMessage
           displayError={displayError}
           setDisplayError={setDisplayError}

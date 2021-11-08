@@ -12,10 +12,10 @@ type OkResponse = {
     model1_score: number;
     model2_score: number;
   }>;
-};
+} & ApiUrl;
 
 type BadResponse = {
   message: string;
-};
+} & ApiUrl;
 
-type ApiResponse = ApiUrl & (OkResponse | BadResponse);
+type ApiResponse = OkResponse | BadResponse;

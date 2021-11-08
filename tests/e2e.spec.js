@@ -41,7 +41,9 @@ test.describe("e2e", () => {
     scContents = await scoreComps.allTextContents();
     const scRegex = /^\S*\s\(\d\d?\d?%\)$/;
     const sccFormatCheck = scContents.every((text) => scRegex.test(text));
-    expect(sccFormatCheck).toBe(true);
+    await expect(sccFormatCheck).toBe(true);
+
+    await expect(page).toHaveURL(/.*results/);
   });
 
   test("bad request", async ({ page }) => {

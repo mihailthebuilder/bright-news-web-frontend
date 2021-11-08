@@ -6,7 +6,7 @@ const ErrorMessage = ({
   setDisplayError,
 }: {
   displayError: Boolean;
-  setDisplayError: React.Dispatch<React.SetStateAction<Boolean>>;
+  setDisplayError: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   return (
     <button

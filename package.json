@@ -23,6 +23,7 @@
     "build": "react-scripts build",
     "test": "playwright test --browser=all",
     "test-head": "playwright test --headed",
+    "test-one": "playwright test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"

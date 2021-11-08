@@ -1,6 +1,8 @@
 import "./LandingPage.scss";
 
-const LandingPage = ({ children }) => {
+import { ReactNode } from "react";
+
+const LandingPage = ({ children }: { children: ReactNode }) => {
   return (
     <section className="landing-section">
       <h3 className="instructions">

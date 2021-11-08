@@ -7,6 +7,12 @@ const SearchBar = ({
   inputValue,
   loadingSearch,
   page,
+}: {
+  submitHandler: (e: React.FormEvent<HTMLFormElement>) => void;
+  inputChangeHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  inputValue: string;
+  loadingSearch: boolean;
+  page: string;
 }) => {
   return (
     <form

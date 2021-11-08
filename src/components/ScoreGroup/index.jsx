@@ -1,5 +1,5 @@
 import "./ScoreGroup.scss";
-import { shuffle, shortenStr } from "../../resources/resources.js";
+import { shuffle, shortenStr } from "../../resources/resources";
 
 const ScoreGroup = ({ websites, urlAnalyzed, scoregroup, index }) => {
   const pickedWebsites = (sitesNumber) => {

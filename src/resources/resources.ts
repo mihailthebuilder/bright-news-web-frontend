@@ -1,4 +1,4 @@
-export const shuffle = (array) => {
+export const shuffle = (array: Array<any>) => {
   let newArray = array.slice();
   for (let i = newArray.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
@@ -37,7 +37,7 @@ export const SCORE_GROUP = [
   },
 ];
 
-export const shortenStr = (inputStr, charNumLimit) => {
+export const shortenStr = (inputStr: string, charNumLimit: number) => {
   return inputStr.length > charNumLimit
     ? inputStr.slice(0, charNumLimit) + "..."
     : inputStr;

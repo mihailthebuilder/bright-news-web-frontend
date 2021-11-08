@@ -14,6 +14,7 @@ test.describe("e2e", () => {
     // about section
     await page.click("[pagename='about']");
     await expect(page.locator("h1")).toHaveText("About");
+    await expect(page).toHaveURL(/.*about/);
   });
 
   test("good request", async ({ page }) => {

@@ -10,6 +10,12 @@ test.describe("e2e", () => {
     await expect(page.locator("nav")).toContainText("Bright News");
   });
 
+  test("about page works", async ({ page }) => {
+    // about section
+    await page.click("[pagename='about']");
+    await expect(page.locator("h1")).toHaveText("About");
+  });
+
   test("good request", async ({ page }) => {
     // try fetching a score
     await page.fill("input[type='text']", "ft.com");
@@ -35,10 +41,6 @@ test.describe("e2e", () => {
     const scRegex = /^\S*\s\(\d\d?\d?%\)$/;
     const sccFormatCheck = scContents.every((text) => scRegex.test(text));
     expect(sccFormatCheck).toBe(true);
-
-    // about section
-    await page.click("[pagename='about']");
-    await expect(page.locator("h1")).toHaveText("About");
   });
 
   test("bad request", async ({ page }) => {

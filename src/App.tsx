@@ -11,6 +11,8 @@ import AboutPage from "./components/AboutPage";
 
 import { requestUrl } from "./resources/resources";
 
+import { BrowserRouter as Router } from "react-router-dom";
+
 import "./App.scss";
 
 function App() {
@@ -49,29 +51,13 @@ function App() {
   };
 
   return (
-    <div className={page === "landing" ? "spa-layout" : ""}>
-      <ErrorMessage
-        displayError={displayError}
-        setDisplayError={setDisplayError}
-      />
-      <NavBar
-        page={page}
-        navHandler={(event: {
-          target: { getAttribute(attr: string): string };
-        }) => setPage(event.target.getAttribute("pagename"))}
-      >
-        <SearchBar
-          submitHandler={getUrlResults}
-          inputChangeHandler={(event: ChangeEvent<HTMLInputElement>) =>
-            setUrl(event.target.value)
-          }
-          inputValue={url}
-          loadingSearch={loadingSearch}
-          page={page}
+    <Router>
+      <div className={page === "landing" ? "spa-layout" : ""}>
+        <ErrorMessage
+          displayError={displayError}
+          setDisplayError={setDisplayError}
         />
-      </NavBar>
-      {page === "landing" ? (
-        <LandingPage>
+        <NavBar>
           <SearchBar
             submitHandler={getUrlResults}
             inputChangeHandler={(event: ChangeEvent<HTMLInputElement>) =>
@@ -81,14 +67,27 @@ function App() {
             loadingSearch={loadingSearch}
             page={page}
           />
-        </LandingPage>
-      ) : page === "results" ? (
-        <ResultsPage results={urlResults} />
-      ) : (
-        <AboutPage />
-      )}
-      <Footer />
-    </div>
+        </NavBar>
+        {page === "landing" ? (
+          <LandingPage>
+            <SearchBar
+              submitHandler={getUrlResults}
+              inputChangeHandler={(event: ChangeEvent<HTMLInputElement>) =>
+                setUrl(event.target.value)
+              }
+              inputValue={url}
+              loadingSearch={loadingSearch}
+              page={page}
+            />
+          </LandingPage>
+        ) : page === "results" ? (
+          <ResultsPage results={urlResults} />
+        ) : (
+          <AboutPage />
+        )}
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

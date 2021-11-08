@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, FormEvent, MouseEvent, ChangeEvent } from "react";
 import axios from "axios";
 
 import NavBar from "./components/NavBar";
@@ -20,7 +20,7 @@ function App() {
   const [displayError, setDisplayError] = useState(false);
   const [loadingSearch, setLoadingSearch] = useState(false);
 
-  const getUrlResults = (event) => {
+  const getUrlResults = (event: FormEvent) => {
     event.preventDefault();
     setLoadingSearch(true);
 
@@ -55,11 +55,15 @@ function App() {
       />
       <NavBar
         page={page}
-        navHandler={(event) => setPage(event.target.getAttribute("pagename"))}
+        navHandler={(event: {
+          target: { getAttribute(attr: string): string };
+        }) => setPage(event.target.getAttribute("pagename"))}
       >
         <SearchBar
           submitHandler={getUrlResults}
-          inputChangeHandler={(event) => setUrl(event.target.value)}
+          inputChangeHandler={(event: ChangeEvent<HTMLInputElement>) =>
+            setUrl(event.target.value)
+          }
           inputValue={url}
           loadingSearch={loadingSearch}
           page={page}
@@ -69,7 +73,9 @@ function App() {
         <LandingPage>
           <SearchBar
             submitHandler={getUrlResults}
-            inputChangeHandler={(event) => setUrl(event.target.value)}
+            inputChangeHandler={(event: ChangeEvent<HTMLInputElement>) =>
+              setUrl(event.target.value)
+            }
             inputValue={url}
             loadingSearch={loadingSearch}
             page={page}

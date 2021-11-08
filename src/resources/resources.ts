@@ -53,3 +53,5 @@ export const requestUrl = () => {
 
   return url + backendPath;
 };
+
+export const BASE_PATH = "/bright-news-web-frontend";

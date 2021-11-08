@@ -1,6 +1,6 @@
 import "./ResultsPage.scss";
 import ScoreGroup from "../ScoreGroup";
-import { SCORE_GROUP, shortenStr } from "../../resources/resources.js";
+import { SCORE_GROUP, shortenStr } from "../../resources/resources";
 
 import ScoreDetails from "../ScoreDetails";
 import { useState, useEffect } from "react";

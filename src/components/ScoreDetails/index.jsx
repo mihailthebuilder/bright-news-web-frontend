@@ -1,5 +1,5 @@
 import "./ScoreDetails.scss";
-import { shuffle, SCORE_GROUP } from "../../resources/resources.js";
+import { shuffle, SCORE_GROUP } from "../../resources/resources";
 import { useState, useEffect } from "react";
 
 const ScoreDetails = ({ type, results }) => {

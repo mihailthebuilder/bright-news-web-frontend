@@ -1,7 +1,13 @@
 import "./ErrorMessage.scss";
 import { ReactComponent as CloseIcon } from "./CloseIcon.svg";
 
-const ErrorMessage = ({ displayError, setDisplayError }) => {
+const ErrorMessage = ({
+  displayError,
+  setDisplayError,
+}: {
+  displayError: Boolean;
+  setDisplayError: React.Dispatch<React.SetStateAction<Boolean>>;
+}) => {
   return (
     <button
       className={displayError ? "error-message show" : "error-message hide"}

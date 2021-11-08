@@ -51,7 +51,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/bright-news-web-frontend">
       <div className="app">
         {/*TODO: check if ErrorMessage should be a conditional error rendering */}
         <ErrorMessage

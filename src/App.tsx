@@ -18,9 +18,7 @@ function App() {
   return (
     <Router basename="/bright-news-web-frontend">
       <div className="app">
-        <NavBar>
-          <SearchBar setUrlResults={setUrlResults} />
-        </NavBar>
+        <NavBar setUrlResults={setUrlResults} />
         {page === "landing" ? (
           <LandingPage>
             <SearchBar setUrlResults={setUrlResults} />

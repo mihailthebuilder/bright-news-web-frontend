@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/bright-news-web-frontend/static/css/main.378cc001.chunk.css",
-    "main.js": "/bright-news-web-frontend/static/js/main.e3687fa1.chunk.js",
-    "main.js.map": "/bright-news-web-frontend/static/js/main.e3687fa1.chunk.js.map",
-    "runtime-main.js": "/bright-news-web-frontend/static/js/runtime-main.5094f03d.js",
-    "runtime-main.js.map": "/bright-news-web-frontend/static/js/runtime-main.5094f03d.js.map",
-    "static/js/2.082d93a6.chunk.js": "/bright-news-web-frontend/static/js/2.082d93a6.chunk.js",
-    "static/js/2.082d93a6.chunk.js.map": "/bright-news-web-frontend/static/js/2.082d93a6.chunk.js.map",
-    "static/js/3.3ae3fce6.chunk.js": "/bright-news-web-frontend/static/js/3.3ae3fce6.chunk.js",
-    "static/js/3.3ae3fce6.chunk.js.map": "/bright-news-web-frontend/static/js/3.3ae3fce6.chunk.js.map",
+    "main.css": "/bright-news-web-frontend/static/css/main.32b872c4.chunk.css",
+    "main.js": "/bright-news-web-frontend/static/js/main.330232e6.chunk.js",
+    "main.js.map": "/bright-news-web-frontend/static/js/main.330232e6.chunk.js.map",
+    "runtime-main.js": "/bright-news-web-frontend/static/js/runtime-main.ee11dced.js",
+    "runtime-main.js.map": "/bright-news-web-frontend/static/js/runtime-main.ee11dced.js.map",
+    "static/js/2.890350f5.chunk.js": "/bright-news-web-frontend/static/js/2.890350f5.chunk.js",
+    "static/js/2.890350f5.chunk.js.map": "/bright-news-web-frontend/static/js/2.890350f5.chunk.js.map",
+    "static/js/3.64a97623.chunk.js": "/bright-news-web-frontend/static/js/3.64a97623.chunk.js",
+    "static/js/3.64a97623.chunk.js.map": "/bright-news-web-frontend/static/js/3.64a97623.chunk.js.map",
     "index.html": "/bright-news-web-frontend/index.html",
-    "static/css/main.378cc001.chunk.css.map": "/bright-news-web-frontend/static/css/main.378cc001.chunk.css.map",
-    "static/js/2.082d93a6.chunk.js.LICENSE.txt": "/bright-news-web-frontend/static/js/2.082d93a6.chunk.js.LICENSE.txt",
+    "static/css/main.32b872c4.chunk.css.map": "/bright-news-web-frontend/static/css/main.32b872c4.chunk.css.map",
+    "static/js/2.890350f5.chunk.js.LICENSE.txt": "/bright-news-web-frontend/static/js/2.890350f5.chunk.js.LICENSE.txt",
     "static/media/CloseIcon.17a94979.svg": "/bright-news-web-frontend/static/media/CloseIcon.17a94979.svg",
     "static/media/index.scss": "/bright-news-web-frontend/static/media/Lobster-Regular.9535d77e.ttf",
     "static/media/Loading.7da03cf0.svg": "/bright-news-web-frontend/static/media/Loading.7da03cf0.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.5094f03d.js",
-    "static/js/2.082d93a6.chunk.js",
-    "static/css/main.378cc001.chunk.css",
-    "static/js/main.e3687fa1.chunk.js"
+    "static/js/runtime-main.ee11dced.js",
+    "static/js/2.890350f5.chunk.js",
+    "static/css/main.32b872c4.chunk.css",
+    "static/js/main.330232e6.chunk.js"
   ]
 }

@@ -10,6 +10,15 @@ test.describe("e2e", () => {
     await expect(page.locator("nav")).toContainText("Bright News");
   });
 
+  test("about page works", async ({ page }) => {
+    // about section
+
+    // TODO: use action tags for button clicks rather than classes
+    await page.click(".right-nav-wrapper");
+    await expect(page.locator("h1")).toHaveText("About");
+    await expect(page).toHaveURL(/.*about/);
+  });
+
   test("good request", async ({ page }) => {
     // try fetching a score
     await page.fill("input[type='text']", "ft.com");
@@ -34,11 +43,9 @@ test.describe("e2e", () => {
     scContents = await scoreComps.allTextContents();
     const scRegex = /^\S*\s\(\d\d?\d?%\)$/;
     const sccFormatCheck = scContents.every((text) => scRegex.test(text));
-    expect(sccFormatCheck).toBe(true);
+    await expect(sccFormatCheck).toBe(true);
 
-    // about section
-    await page.click("[pagename='about']");
-    await expect(page.locator("h1")).toHaveText("About");
+    await expect(page).toHaveURL(/.*results/);
   });
 
   test("bad request", async ({ page }) => {
@@ -51,5 +58,7 @@ test.describe("e2e", () => {
     ]);
 
     await expect(page.locator(".error-message.show")).toBeVisible();
+
+    await expect(page).toHaveURL(/^(?!.*(results|about))/);
   });
 });

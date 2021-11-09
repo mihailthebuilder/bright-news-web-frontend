@@ -14,12 +14,6 @@ type OkResponse = {
   }>;
 } & ApiUrl;
 
-type BadResponse = {
-  message: string;
-} & ApiUrl;
-
-type ApiResponse = OkResponse | BadResponse;
-
-type ApiResponseState = ApiResponse | null;
+type ApiResponseState = OkResponse | null;
 
 type StateSetter<T> = React.Dispatch<React.SetStateAction<T>>;

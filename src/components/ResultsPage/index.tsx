@@ -16,7 +16,7 @@ const ResultsPage = ({ results }: { results: OkResponse }) => {
     );
 
     if (scoredUrl) {
-      setUrlScore(scoredUrl["score"]);
+      setUrlScore(Math.round(scoredUrl["score"]));
     }
 
     setScoreComparisonHtml(

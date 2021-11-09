@@ -47,6 +47,7 @@ const SearchBar = ({
 
   return (
     <>
+      {/* TODO: Error message should be conditional rendering*/}
       <ErrorMessage displayError={error} setDisplayError={setError} />
       <form
         className={

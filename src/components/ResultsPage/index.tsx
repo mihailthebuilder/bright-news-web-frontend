@@ -5,19 +5,19 @@ import { SCORE_GROUP, shortenStr } from "../../resources/resources";
 import ScoreDetails from "../ScoreDetails";
 import { useState, useEffect } from "react";
 
-const ResultsPage = ({ results }) => {
+const ResultsPage = ({ results }: { results: OkResponse }) => {
   // useEffect based on score -> class of font -> colors
 
   const [urlScore, setUrlScore] = useState(0);
   const [scoreComparisonHtml, setScoreComparisonHtml] = useState(<span></span>);
   useEffect(() => {
-    setUrlScore(
-      Math.round(
-        results["website_li"].find(
-          (website_elem) => website_elem["url"] === results["url_analyzed"]
-        )["score"]
-      )
+    const scoredUrl = results["website_li"].find(
+      (website_elem) => website_elem["url"] === results["url_analyzed"]
     );
+
+    if (scoredUrl) {
+      setUrlScore(scoredUrl["score"]);
+    }
 
     setScoreComparisonHtml(
       <ul className="score-group-comparison">

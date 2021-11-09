@@ -4,6 +4,7 @@ import { useLocation, useHistory } from "react-router-dom";
 import { useState, FormEvent } from "react";
 import axios from "axios";
 import { requestUrl } from "../../resources/resources";
+import ErrorMessage from "../ErrorMessage";
 
 const SearchBar = ({
   setUrlResults,
@@ -45,32 +46,35 @@ const SearchBar = ({
   };
 
   return (
-    <form
-      className={
-        location.pathname === "/" ? "landing-search-form" : "nav-search-form"
-      }
-      onSubmit={getUrlResults}
-      method="post"
-    >
-      <input
-        onChange={(event) => {
-          setUrl(event.target.value);
-        }}
-        value={url}
-        type="text"
-        placeholder="e.g. bbc.co.uk"
-        required
-      />
-      {loading ? (
-        <button className="loading-button">
-          <Loading />
-        </button>
-      ) : (
-        <button className="normal-button" type="submit">
-          Analyse
-        </button>
-      )}
-    </form>
+    <>
+      <ErrorMessage displayError={error} setDisplayError={setError} />
+      <form
+        className={
+          location.pathname === "/" ? "landing-search-form" : "nav-search-form"
+        }
+        onSubmit={getUrlResults}
+        method="post"
+      >
+        <input
+          onChange={(event) => {
+            setUrl(event.target.value);
+          }}
+          value={url}
+          type="text"
+          placeholder="e.g. bbc.co.uk"
+          required
+        />
+        {loading ? (
+          <button className="loading-button">
+            <Loading />
+          </button>
+        ) : (
+          <button className="normal-button" type="submit">
+            Analyse
+          </button>
+        )}
+      </form>
+    </>
   );
 };
 

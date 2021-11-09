@@ -1,4 +1,4 @@
-const { test, expect } = require("@playwright/test");
+import { test, expect } from "@playwright/test";
 
 test.describe("e2e", () => {
   test.beforeEach(async ({ page }) => {
@@ -35,12 +35,12 @@ test.describe("e2e", () => {
     expect(scoreRegex.test(scoreText)).toBe(true);
 
     // enough score comparisons?
-    scoreComps = await page.locator(".score-group li");
-    scNum = await scoreComps.count();
+    const scoreComps = await page.locator(".score-group li");
+    const scNum = await scoreComps.count();
     expect(scNum >= 0 && scNum <= 9).toBe(true);
 
     // score formats is good?
-    scContents = await scoreComps.allTextContents();
+    const scContents = await scoreComps.allTextContents();
     const scRegex = /^\S*\s\(\d\d?\d?%\)$/;
     const sccFormatCheck = scContents.every((text) => scRegex.test(text));
     await expect(sccFormatCheck).toBe(true);

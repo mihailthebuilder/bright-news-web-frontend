@@ -2,7 +2,18 @@ import "./ScoreDetails.scss";
 import { shuffle, SCORE_GROUP } from "../../resources/resources";
 import { useState, useEffect } from "react";
 
-const ScoreDetails = ({ type, results }) => {
+type TextList = Array<{
+  combined_score: number;
+  text: string;
+}>;
+
+const ScoreDetails = ({
+  type,
+  results,
+}: {
+  type: "negative" | "positive";
+  results: OkResponse;
+}) => {
   const [colorStyle, setColorStyle] = useState("no-style");
   const [title, setTitle] = useState("");
 
@@ -12,7 +23,7 @@ const ScoreDetails = ({ type, results }) => {
     setTitle(SCORE_GROUP[scoreGroupIndex].name);
   }, [type]);
 
-  const [totalTextPieces, setTotalTextPieces] = useState([]);
+  const [totalTextPieces, setTotalTextPieces] = useState<TextList>([]);
 
   useEffect(() => {
     setTotalTextPieces(
@@ -24,7 +35,7 @@ const ScoreDetails = ({ type, results }) => {
     );
   }, [type, results]);
 
-  const [exampleTextPieces, setExampleTextPieces] = useState([]);
+  const [exampleTextPieces, setExampleTextPieces] = useState<TextList>([]);
 
   useEffect(() => {
     if (totalTextPieces.length > 4) {

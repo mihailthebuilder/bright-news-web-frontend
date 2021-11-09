@@ -1,5 +1,4 @@
-import { useState, FormEvent, ChangeEvent } from "react";
-import axios from "axios";
+import { useState } from "react";
 
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -9,46 +8,15 @@ import ErrorMessage from "./components/ErrorMessage";
 import ResultsPage from "./components/ResultsPage";
 import AboutPage from "./components/AboutPage";
 
-import { requestUrl } from "./resources/resources";
-
 import { BrowserRouter as Router } from "react-router-dom";
 
 import "./App.scss";
 
 function App() {
-  const [urlResults, setUrlResults] = useState<ApiResponse | null>(null);
-  const [url, setUrl] = useState("");
+  const [urlResults, setUrlResults] = useState<ApiResponseState>(null);
   const [page, setPage] = useState("landing");
   const [displayError, setDisplayError] = useState(false);
   const [loadingSearch, setLoadingSearch] = useState(false);
-
-  const getUrlResults = (event: FormEvent) => {
-    event.preventDefault();
-    setLoadingSearch(true);
-
-    console.log(requestUrl());
-
-    axios
-      .post(requestUrl(), {
-        url: url,
-      })
-      .then((res) => {
-        if (res.status !== 200) throw new Error("Bad request");
-        console.log(res.data);
-
-        setUrlResults(res.data);
-        setPage("results");
-      })
-      .catch((err) => {
-        // if something broke, show the error message
-        setDisplayError(true);
-        setTimeout(() => setDisplayError(false), 3000);
-      })
-      .finally(() => {
-        setLoadingSearch(false);
-        setUrl("");
-      });
-  };
 
   return (
     <Router basename="/bright-news-web-frontend">
@@ -59,27 +27,11 @@ function App() {
           setDisplayError={setDisplayError}
         />
         <NavBar>
-          <SearchBar
-            submitHandler={getUrlResults}
-            inputChangeHandler={(event: ChangeEvent<HTMLInputElement>) =>
-              setUrl(event.target.value)
-            }
-            inputValue={url}
-            loadingSearch={loadingSearch}
-            page={page}
-          />
+          <SearchBar setUrlResults={setUrlResults} />
         </NavBar>
         {page === "landing" ? (
           <LandingPage>
-            <SearchBar
-              submitHandler={getUrlResults}
-              inputChangeHandler={(event: ChangeEvent<HTMLInputElement>) =>
-                setUrl(event.target.value)
-              }
-              inputValue={url}
-              loadingSearch={loadingSearch}
-              page={page}
-            />
+            <SearchBar setUrlResults={setUrlResults} />
           </LandingPage>
         ) : page === "results" ? (
           <ResultsPage results={urlResults} />

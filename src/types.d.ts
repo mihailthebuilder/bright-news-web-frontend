@@ -18,6 +18,7 @@ type OkResponse = {
 
 type ApiResponseState = OkResponse | null;
 
+// TODO: tighter typing for ScoreGroup
 type ScoreGroup = {
   group: string;
   styleClass: string;

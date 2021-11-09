@@ -7,27 +7,32 @@ import SearchBar from "./components/SearchBar";
 import ResultsPage from "./components/ResultsPage";
 import AboutPage from "./components/AboutPage";
 
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./App.scss";
 
 function App() {
   const [urlResults, setUrlResults] = useState<ApiResponseState>(null);
-  const [page, setPage] = useState("landing");
 
   return (
     <Router basename="/bright-news-web-frontend">
       <div className="app">
         <NavBar setUrlResults={setUrlResults} />
-        {page === "landing" ? (
-          <LandingPage>
-            <SearchBar setUrlResults={setUrlResults} />
-          </LandingPage>
-        ) : page === "results" ? (
-          <ResultsPage results={urlResults} />
-        ) : (
-          <AboutPage />
-        )}
+
+        <Switch>
+          <Route path="/about">
+            <AboutPage />
+          </Route>
+          <Route path="/results">
+            <ResultsPage results={urlResults} />
+          </Route>
+          <Route path="/">
+            <LandingPage>
+              <SearchBar setUrlResults={setUrlResults} />
+            </LandingPage>
+          </Route>
+        </Switch>
+
         <Footer />
       </div>
     </Router>

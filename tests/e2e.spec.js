@@ -12,7 +12,9 @@ test.describe("e2e", () => {
 
   test("about page works", async ({ page }) => {
     // about section
-    await page.click("[pagename='about']");
+
+    // TODO: use action tags for button clicks rather than classes
+    await page.click(".right-nav-wrapper");
     await expect(page.locator("h1")).toHaveText("About");
     await expect(page).toHaveURL(/.*about/);
   });

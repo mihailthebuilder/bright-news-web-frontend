@@ -24,7 +24,11 @@ function App() {
             <AboutPage />
           </Route>
           <Route path="/results">
-            <ResultsPage results={urlResults} />
+            {urlResults ? (
+              <ResultsPage results={urlResults} />
+            ) : (
+              <div>No results found.</div>
+            )}
           </Route>
           <Route path="/">
             <LandingPage>

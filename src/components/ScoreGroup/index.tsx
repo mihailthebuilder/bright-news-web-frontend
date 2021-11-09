@@ -1,8 +1,18 @@
 import "./ScoreGroup.scss";
 import { shuffle, shortenStr } from "../../resources/resources";
 
-const ScoreGroup = ({ websites, urlAnalyzed, scoregroup, index }) => {
-  const pickedWebsites = (sitesNumber) => {
+const ScoreGroup = ({
+  websites,
+  urlAnalyzed,
+  scoregroup,
+  index,
+}: {
+  websites: Array<Website>;
+  index: number;
+  urlAnalyzed: string;
+  scoregroup: ScoreGroup;
+}) => {
+  const pickedWebsites = (sitesNumber: number) => {
     let filteredSites = websites.filter(
       (website) =>
         website["score"] > scoregroup.lowerBound &&
